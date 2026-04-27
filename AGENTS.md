@@ -1,0 +1,66 @@
+# Repository Agent Guide
+Version: 2026-04-28
+
+## Purpose
+
+This repository provides reusable operating instructions and templates for high-throughput agentic engineering teams.
+
+## Repository Type
+
+Current type: community OSS.
+
+## Default Mode
+
+Work on a branch unless explicitly told otherwise. Use atomic commits, keep PRs reviewable, verify before completion, and return a review pack.
+
+## Repo Layout
+
+- `docs/` - operating policies and checklists
+- `templates/` - copyable templates for projects and PRs
+- `examples/` - example repo-specific `AGENTS.md` files
+- `.github/` - GitHub community files
+
+## Commands
+
+Install: none
+
+Test: none
+
+Lint: none
+
+Typecheck: none
+
+Build: none
+
+Smoke test: `git diff --check`
+
+## Work Policy
+
+Before editing, report objective, expected blast radius, files likely to change, commit plan, verification plan, and risk level.
+
+Use Conventional Commits. One commit equals one reviewable intent.
+
+## Stop Before Touching
+
+Ask before changing licensing, public templates in incompatible ways, repo history, or destructive commands.
+
+## Review Pack Required
+
+At the end of every task, return:
+
+```md
+## Review Pack
+Repo:
+Branch:
+PR:
+Task:
+Status:
+Summary:
+Commits:
+Files changed:
+Verification:
+Risk level:
+Rollback plan:
+Human decision needed:
+Next recommended task:
+```
