@@ -37,6 +37,31 @@ Return a review pack.
 
 Do not merge without explicit human approval.
 
+## Hard Commit Gate
+
+Before creating any commit, inspect:
+
+```bash
+git diff --stat
+git status --short
+```
+
+If the staged or unstaged diff touches more than 8 files, stop and produce a commit split plan before committing.
+
+A single commit touching more than 8 files is only allowed when one of these is true:
+
+- initial repo scaffold
+- generated lockfile/vendor output required by one change
+- mechanical rename/move
+- formatting-only pass
+- explicitly approved by the human
+
+Otherwise, split the diff into multiple atomic commits.
+
+Do not finish a task with one large commit if the diff contains multiple reviewable intents.
+
+If a PR touches more than 8 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
+
 ## Repo Layout
 
 Update this section with the actual repo layout:
@@ -96,6 +121,21 @@ Before editing, report:
 5. verification plan
 6. risk level
 
+Commit plan format:
+
+```md
+- Commit 1: `type(scope): title`
+  - Intent:
+  - Files:
+  - Verification:
+- Commit 2: `type(scope): title`
+  - Intent:
+  - Files:
+  - Verification:
+```
+
+Before the final commit series, update the commit plan based on the actual diff.
+
 ## Commit Policy
 
 Use Conventional Commits.
@@ -103,6 +143,8 @@ Use Conventional Commits.
 One commit equals one reviewable intent.
 
 File count is not the commit boundary.
+
+Do not default to one commit per file. Split by reviewable intent first, and split by file only when each file can be reviewed, reverted, and verified independently.
 
 Split commits when the work introduces independently reviewable parts, such as:
 
@@ -128,6 +170,19 @@ Do not mix:
 Prefer 3 clean commits over 1 mixed commit.
 
 Prefer 1 clean commit over 5 artificial commits.
+
+## Commit As You Go
+
+Do not wait until the end of a task to make one large commit.
+
+After each independently reviewable change unit:
+
+1. run the smallest relevant verification
+2. stage only that unit
+3. commit it
+4. continue to the next unit
+
+If you are about to edit a new subsystem, docs topic, CI workflow, config file, or test group, consider committing the previous unit first.
 
 ## PR Policy
 
