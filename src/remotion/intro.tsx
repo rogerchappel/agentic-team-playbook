@@ -7,6 +7,14 @@ import {
 } from 'remotion';
 
 const workflow = ['Brief', 'Branch', 'Checkpoint', 'Verify', 'Review Pack'];
+const included = [
+  'AGENTS.md template',
+  'Global policy',
+  'PR template',
+  'Review packs',
+  'Risk gates',
+  'Verification checklist',
+];
 
 const colors = {
   ink: '#101820',
@@ -113,7 +121,7 @@ export const Intro = () => {
             marginBottom: 18,
           }}
         >
-          Make AI coding agents durable workers.
+          Templates, policies, and checklists for agent teams.
         </div>
         <div
           style={{
@@ -123,9 +131,9 @@ export const Intro = () => {
             letterSpacing: 0,
           }}
         >
-          Agent speed.
+          Durable agents.
           <br />
-          Durable work.
+          Reviewable work.
         </div>
       </div>
 
@@ -201,8 +209,8 @@ export const Intro = () => {
         style={{
           position: 'absolute',
           right: 86,
-          top: 210,
-          width: 310,
+          top: 188,
+          width: 340,
           borderRadius: 22,
           border: '1px solid rgba(248,249,250,0.16)',
           background: 'rgba(248,249,250,0.08)',
@@ -214,19 +222,19 @@ export const Intro = () => {
         }}
       >
         <div style={{ color: colors.gold, fontSize: 20, fontWeight: 800, marginBottom: 14 }}>
-          Review Pack
+          Comes With
         </div>
-        {['Summary', 'Commits', 'Verification', 'Risk', 'Rollback'].map((item, index) => (
+        {included.map((item, index) => (
           <div
             key={item}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: 10,
-              marginTop: 12,
+              marginTop: 11,
               color: colors.muted,
-              fontSize: 18,
-              opacity: interpolate(frame, [66 + index * 7, 76 + index * 7], [0, 1], {
+              fontSize: 17,
+              opacity: interpolate(frame, [42 + index * 5, 52 + index * 5], [0, 1], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               }),
