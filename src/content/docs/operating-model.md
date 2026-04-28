@@ -1,11 +1,13 @@
 ---
 title: Operating Model
-description: The core loop for high-throughput agentic engineering.
+description: The durable-worker loop for high-throughput agentic engineering.
 ---
 
-High throughput comes from short, reliable loops.
+High throughput comes from short, durable loops.
 
 The goal is not more agents. The goal is more reviewable work safely merged.
+
+Durable workers checkpoint state, retry safely, emit useful logs, and stop when an operation needs human judgment. Agentic engineering needs the same shape: branch, change, verify, commit, hand off, and escalate before risky work.
 
 ## The Loop
 
@@ -18,6 +20,18 @@ The goal is not more agents. The goal is more reviewable work safely merged.
 7. open a focused PR
 8. return a review pack
 9. merge only after human approval
+
+## Durable Work Mapping
+
+| Durable worker concept | Agentic engineering equivalent |
+| --- | --- |
+| execution context | branch from latest `main` |
+| checkpoint | atomic commit |
+| health check | targeted verification |
+| execution log | review pack |
+| retry safety | dry-run, idempotency, and rollback notes |
+| circuit breaker | stop-before-touching policy |
+| handoff queue | pull request |
 
 ## Agent Task Brief
 

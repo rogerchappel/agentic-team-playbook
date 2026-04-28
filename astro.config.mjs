@@ -7,7 +7,7 @@ export default defineConfig({
     starlight({
       title: 'Agentic Team Playbook',
       description:
-        'A field manual for running AI coding agents like an engineering team.',
+        'A field manual for making AI coding agents durable workers.',
       logo: {
         src: './src/assets/mark.svg',
         alt: 'Agentic Team Playbook',

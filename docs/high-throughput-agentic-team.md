@@ -1,8 +1,22 @@
 # Operating A High-Throughput Agentic Team
 
-High throughput comes from small, reliable loops.
+High throughput comes from small, durable loops.
 
 The goal is not more agents. The goal is more reviewable work safely merged.
+
+Durable workers checkpoint state, retry safely, emit useful logs, and stop before operations that need human judgment. Agentic engineering uses the same pattern: branch, change, verify, commit, hand off, and escalate risky work.
+
+## Durable Work Mapping
+
+| Durable worker concept | Agentic engineering equivalent |
+| --- | --- |
+| execution context | branch from latest `main` |
+| checkpoint | atomic commit |
+| health check | targeted verification |
+| execution log | review pack |
+| retry safety | dry-run, idempotency, and rollback notes |
+| circuit breaker | stop-before-touching policy |
+| handoff queue | pull request |
 
 ## Operating Loop
 
