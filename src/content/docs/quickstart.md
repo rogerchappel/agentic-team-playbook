@@ -28,6 +28,32 @@ mkdir -p ~/.codex
 curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/docs/global-agent-operating-policy.md -o ~/.codex/AGENTS.md
 ```
 
+## Runtime Adapters
+
+Keep `AGENTS.md` as the shared source of truth, then add a small adapter file when a runtime expects one.
+
+Claude Code:
+
+```bash
+cat > CLAUDE.md <<'EOF'
+# Claude Code Instructions
+
+Follow AGENTS.md first. It defines the branch-first workflow, atomic commit policy, risk escalation rules, verification requirement, and review pack format for this repository.
+EOF
+```
+
+Gemini CLI:
+
+```bash
+cat > GEMINI.md <<'EOF'
+# Gemini CLI Instructions
+
+Follow AGENTS.md first. It defines the branch-first workflow, atomic commit policy, risk escalation rules, verification requirement, and review pack format for this repository.
+EOF
+```
+
+OpenCode can use the root `AGENTS.md` directly.
+
 ## What Good Looks Like
 
 Agents should start tasks by stating:

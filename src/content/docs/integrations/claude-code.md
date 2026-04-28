@@ -25,3 +25,17 @@ EOF
 ## Add Repo Context
 
 If the repo already has useful Claude context, preserve it. Add the pointer near the top and leave the domain notes below it.
+
+## Good First Test
+
+Ask Claude Code:
+
+```text
+Read CLAUDE.md and AGENTS.md. Report objective, expected blast radius, likely files, commit plan, verification plan, and risk level before editing.
+```
+
+It should plan first and preserve the branch-first, atomic-commit workflow.
+
+## Reference
+
+- [Claude Code docs](https://code.claude.com/docs)

@@ -6,17 +6,11 @@ The goal is simple: turn fast agent output into reviewable, reversible, verifiab
 
 Durable workers do not just run quickly. They checkpoint state, retry safely, log what happened, and stop before destructive operations. This playbook brings that discipline to agentic programmers: branches as execution contexts, atomic commits as checkpoints, review packs as logs, verification as health checks, and human approval as the circuit breaker for risky work.
 
-[![Agentic Team Playbook Remotion intro](public/media/agentic-team-playbook-intro.gif)](public/media/agentic-team-playbook-intro.mp4)
-
-[Watch or download the 5-second Remotion intro video](public/media/agentic-team-playbook-intro.mp4)
-
-The video is generated with Remotion from [`src/remotion/intro.tsx`](src/remotion/intro.tsx):
-
-```bash
-npm run video:still
-npm run video:render
-npm run video:gif
-```
+<p align="center">
+  <a href="public/media/agentic-team-playbook-intro.mp4">
+    <img src="public/media/agentic-team-playbook-intro.gif" alt="Agentic Team Playbook install and docs tour" width="800">
+  </a>
+</p>
 
 ## What This Provides
 
@@ -52,10 +46,12 @@ Use this if you run agents across:
 
 ## Quick Start
 
-Copy the repo template into your project:
+Install the shared repo instructions and PR template from your repo root:
 
 ```bash
-cp templates/AGENTS.md /path/to/your/repo/AGENTS.md
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
+mkdir -p .github
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/.github/pull_request_template.md -o .github/pull_request_template.md
 ```
 
 Then edit:
@@ -67,13 +63,58 @@ Then edit:
 - stop-before-touching list
 - verification requirements
 
-For global Codex or agent instructions, start with:
+## Agent Runtime Setup
+
+Use `AGENTS.md` as the portable source of truth, then add the small adapter file your runtime expects.
+
+### Codex
+
+Repo-level Codex instructions:
 
 ```bash
-cp docs/global-agent-operating-policy.md ~/.codex/AGENTS.md
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
 ```
 
-Adjust the path for your agent runtime.
+Global Codex baseline:
+
+```bash
+mkdir -p ~/.codex
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/docs/global-agent-operating-policy.md -o ~/.codex/AGENTS.md
+```
+
+### Claude Code
+
+Claude Code reads `CLAUDE.md`. Keep it short and point it at `AGENTS.md`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
+cat > CLAUDE.md <<'EOF'
+# Claude Code Instructions
+
+Follow AGENTS.md first. It defines the branch-first workflow, atomic commit policy, risk escalation rules, verification requirement, and review pack format for this repository.
+EOF
+```
+
+### OpenCode
+
+OpenCode can use `AGENTS.md` directly:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
+```
+
+### Gemini CLI
+
+Gemini CLI uses `GEMINI.md`. Keep `AGENTS.md` as the shared policy and point Gemini at it:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
+cat > GEMINI.md <<'EOF'
+# Gemini CLI Instructions
+
+Follow AGENTS.md first. It defines the branch-first workflow, atomic commit policy, risk escalation rules, verification requirement, and review pack format for this repository.
+EOF
+```
 
 ## Core Workflow
 

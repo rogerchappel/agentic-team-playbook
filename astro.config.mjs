@@ -35,6 +35,8 @@ export default defineConfig({
           items: [
             { label: 'Codex', slug: 'integrations/codex' },
             { label: 'Claude Code', slug: 'integrations/claude-code' },
+            { label: 'OpenCode', slug: 'integrations/opencode' },
+            { label: 'Gemini CLI', slug: 'integrations/gemini-cli' },
             { label: 'OpenClaw', slug: 'integrations/openclaw' },
           ],
         },
