@@ -13,6 +13,22 @@ Current type: community OSS.
 
 Work on a branch unless explicitly told otherwise. Use atomic commits, keep PRs reviewable, verify before completion, and return a review pack.
 
+Before opening a PR, fetch and rebase on the latest default branch.
+
+Every delegated agent or workstream owns exactly one branch and submits exactly one PR. This is a hard line. Do not put several agents' work on one shared branch unless the human explicitly requests it.
+
+Open one PR per reviewable intent.
+
+The final integration PR may contain only integration glue, conflict resolution, connecting docs, and end-to-end verification updates.
+
+For stacked PRs:
+
+- base each PR on the previous PR head
+- keep the head branch limited to that workstream's commits
+- do not merge lower stack branches into higher stack branches
+- prefer rebase or cherry-pick for stack maintenance
+- never force-push shared or maintainer branches without approval
+
 ## Hard Commit Gate
 
 Before creating any commit, inspect:
@@ -24,19 +40,21 @@ git status --short
 
 If the staged or unstaged diff touches more than 3 files, stop and produce a commit split plan before committing.
 
-A single commit touching more than 3 files is only allowed when one of these is true:
+No commit may change more than 3 files unless the maintainer explicitly approves that commit before it is created.
 
-- initial repo scaffold
-- generated lockfile/vendor output required by one change
-- mechanical rename/move
-- formatting-only pass
-- explicitly approved by the human
+If a task touches more than 3 files, split the work before committing.
+
+Scaffold, generated output, lockfile output, formatting-only passes, and mechanical renames still require explicit maintainer approval before commit when they touch more than 3 files.
 
 Otherwise, split the diff into multiple atomic commits.
+
+Do not spread many file changes across a few broad commits.
 
 Do not finish a task with one large commit if the diff contains multiple reviewable intents.
 
 If a PR touches more than 3 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
+
+Tests follow the same commit boundary. Use one test intent per commit, and separate unrelated unit, regression, fixture, and smoke tests into separate commits.
 
 ## Repo Layout
 
