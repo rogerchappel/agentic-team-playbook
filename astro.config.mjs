@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-  site: 'https://agentic-team-playbook.pages.dev',
+  site: 'http://agent-playbook.rogerchappel.com',
   integrations: [
     starlight({
       title: 'Agentic Team Playbook',
