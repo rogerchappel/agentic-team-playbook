@@ -1,19 +1,27 @@
-## Summary
+## Review Pack
 
--
+Repo:
 
-## Verification
+Branch:
 
--
+PR:
 
-## Risk
+Task:
 
--
+Status:
 
-## Rollback
+Summary:
 
--
+Commits:
 
-## Human Decision Needed
+Files changed:
 
--
+Verification:
+
+Risk level:
+
+Rollback plan:
+
+Human decision needed:
+
+Next recommended task:
