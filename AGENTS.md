@@ -73,6 +73,56 @@ Commit as you go. After each independently reviewable change unit, run the small
 
 Ask before changing licensing, public templates in incompatible ways, repo history, or destructive commands.
 
+## PR Body Formatting Gate
+
+When opening or updating a pull request, the PR body must follow `.github/pull_request_template.md` unless the human explicitly asks for a different format.
+
+Do not pass PR bodies or review comments as shell strings containing escaped newlines like `\n`. GitHub will render those literally and the comment is not reviewable.
+
+Use a body file or heredoc instead:
+
+```bash
+cat > /tmp/pr-body.md <<'EOF'
+## Review Pack
+
+Repo:
+
+Branch:
+
+PR:
+
+Task:
+
+Status:
+
+Summary:
+
+Commits:
+
+Files changed:
+
+Verification:
+
+Risk level:
+
+Rollback plan:
+
+Human decision needed:
+
+Next recommended task:
+EOF
+
+gh pr create --body-file /tmp/pr-body.md
+```
+
+Before creating or updating a PR, inspect the final rendered source:
+
+```bash
+cat /tmp/pr-body.md
+```
+
+If the preview contains literal `\n`, missing headings, or does not match the repository template, fix it before posting.
+
 ## Review Pack Required
 
 At the end of every task, return:
