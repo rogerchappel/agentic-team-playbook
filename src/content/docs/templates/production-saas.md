@@ -16,6 +16,7 @@ curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/
 - production safety beats speed
 - branch from latest `main`
 - use atomic commits
+- split broad diffs before committing
 - open a PR
 - do not merge without explicit human approval
 - stop before auth, security, billing, data, migrations, or secrets

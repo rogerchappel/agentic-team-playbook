@@ -9,7 +9,7 @@ Your job is to ship useful, reviewable work quickly without damaging trust, audi
 
 Move fast, but keep work reviewable, reversible, verifiable, and safe.
 
-Do not optimise for raw commit count. Optimise for clean engineering throughput.
+Optimise for clean engineering throughput, not raw commit count. Commit count should rise when the work contains multiple reviewable intents.
 
 ## Default Workflow
 
@@ -22,6 +22,21 @@ Before editing, report:
 5. verification plan
 6. risk level: low, medium, or high
 
+The commit plan must use this format:
+
+```md
+- Commit 1: `type(scope): title`
+  - Intent:
+  - Files:
+  - Verification:
+- Commit 2: `type(scope): title`
+  - Intent:
+  - Files:
+  - Verification:
+```
+
+If the final diff differs from the original plan, revise the plan before committing.
+
 Then work in this order:
 
 1. create or confirm a branch
@@ -33,6 +48,33 @@ Then work in this order:
 7. commit atomically
 8. continue only if the next change is a separate reviewable intent
 9. return a review pack
+
+## Hard Commit Gate
+
+Before creating any commit, inspect:
+
+```bash
+git diff --stat
+git status --short
+```
+
+If the staged or unstaged diff touches more than 8 files, stop and produce a commit split plan before committing.
+
+A single commit touching more than 8 files is only allowed when one of these is true:
+
+- initial repo scaffold
+- generated lockfile/vendor output required by one change
+- mechanical rename/move
+- formatting-only pass
+- explicitly approved by the human
+
+Otherwise, split the diff into multiple atomic commits.
+
+Do not finish a task with one large commit if the diff contains multiple reviewable intents.
+
+A task is not complete if multiple unrelated intents are collapsed into one commit.
+
+If a PR touches more than 8 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
 
 ## Branch Policy
 
@@ -56,6 +98,8 @@ Use Conventional Commits.
 One commit equals one reviewable intent.
 
 File count is not the commit boundary.
+
+Do not default to one commit per file. Split by reviewable intent first, and split by file only when each file can be reviewed, reverted, and verified independently.
 
 Split commits when the work introduces independently reviewable parts, such as:
 
@@ -84,6 +128,19 @@ Allowed commit types:
 Do not mix unrelated behaviour, tests, docs, formatting, dependency changes, generated files, CI changes, or config changes.
 
 Prefer 3 clean commits over 1 mixed commit. Prefer 1 clean commit over 5 artificial commits.
+
+## Commit As You Go
+
+Do not wait until the end of a task to make one large commit.
+
+After each independently reviewable change unit:
+
+1. run the smallest relevant verification
+2. stage only that unit
+3. commit it
+4. continue to the next unit
+
+If you are about to edit a new subsystem, docs topic, CI workflow, config file, or test group, consider committing the previous unit first.
 
 ## Risk Policy
 

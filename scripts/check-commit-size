@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MAX_FILES="${MAX_FILES_PER_COMMIT:-8}"
+commit="${1:-HEAD}"
+
+files_changed="$(git diff-tree --no-commit-id --name-only -r "$commit" | wc -l | tr -d ' ')"
+
+if [ "$files_changed" -gt "$MAX_FILES" ]; then
+  echo "Commit $commit touches $files_changed files."
+  echo "Limit is $MAX_FILES files unless this is a scaffold, generated, rename, or approved large commit."
+  echo "Consider splitting this commit by reviewable intent."
+  exit 1
+fi

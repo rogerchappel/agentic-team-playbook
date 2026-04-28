@@ -14,6 +14,7 @@ curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/
 ## Key Rules
 
 - keep PRs small
+- split broad diffs before committing
 - avoid unrelated formatting churn
 - preserve compatibility
 - call out public behaviour changes
