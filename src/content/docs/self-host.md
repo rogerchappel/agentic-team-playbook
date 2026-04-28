@@ -41,11 +41,27 @@ Build output directory: dist
 Node version: 22
 ```
 
+This repo also includes `wrangler.toml` with:
+
+```toml
+name = "agentic-team-playbook"
+compatibility_date = "2026-04-28"
+pages_build_output_dir = "dist"
+```
+
 Then add a custom domain such as:
 
 ```text
 playbook.example.com
 agents.example.com
+```
+
+Command-line deploy:
+
+```bash
+npm install
+npm run build
+npx wrangler pages deploy dist --project-name agentic-team-playbook
 ```
 
 ## Vercel

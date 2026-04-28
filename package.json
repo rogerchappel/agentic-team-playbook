@@ -6,10 +6,18 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "video:still": "remotion still src/remotion/index.ts Intro public/media/agentic-team-playbook-intro.png --frame=75",
+    "video:render": "remotion render src/remotion/index.ts Intro public/media/agentic-team-playbook-intro.mp4 --codec=h264 --crf=28"
   },
   "dependencies": {
     "@astrojs/starlight": "0.38.4",
     "astro": "6.1.9"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.438",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.438"
   }
 }
