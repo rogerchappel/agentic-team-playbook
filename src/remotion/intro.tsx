@@ -6,7 +6,7 @@ import {
   useVideoConfig,
 } from 'remotion';
 
-const workflow = ['Brief', 'Branch', 'Commit', 'Verify', 'Review Pack'];
+const workflow = ['Brief', 'Branch', 'Checkpoint', 'Verify', 'Review Pack'];
 
 const colors = {
   ink: '#101820',
@@ -90,7 +90,9 @@ export const Intro = () => {
           </div>
           <div style={{ fontSize: 24, fontWeight: 700 }}>Agentic Team Playbook</div>
         </div>
-        <div style={{ color: colors.muted, fontSize: 18 }}>{'branch -> verify -> review'}</div>
+        <div style={{ color: colors.muted, fontSize: 18 }}>
+          {'checkpoint -> verify -> handoff'}
+        </div>
       </div>
 
       <div
@@ -111,7 +113,7 @@ export const Intro = () => {
             marginBottom: 18,
           }}
         >
-          Run AI coding agents like an engineering team.
+          Make AI coding agents durable workers.
         </div>
         <div
           style={{
@@ -121,7 +123,9 @@ export const Intro = () => {
             letterSpacing: 0,
           }}
         >
-          Not like a slot machine.
+          Agent speed.
+          <br />
+          Durable work.
         </div>
       </div>
 
