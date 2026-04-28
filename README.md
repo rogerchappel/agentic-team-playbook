@@ -6,7 +6,7 @@ The goal is simple: turn fast agent output into reviewable, reversible, verifiab
 
 Durable workers do not just run quickly. They checkpoint state, retry safely, log what happened, and stop before destructive operations. This playbook brings that discipline to agentic programmers: branches as execution contexts, atomic commits as checkpoints, review packs as logs, verification as health checks, and human approval as the circuit breaker for risky work.
 
-[![Agentic Team Playbook Remotion intro](public/media/agentic-team-playbook-intro.png)](public/media/agentic-team-playbook-intro.mp4)
+[![Agentic Team Playbook Remotion intro](public/media/agentic-team-playbook-intro.gif)](public/media/agentic-team-playbook-intro.mp4)
 
 [Watch or download the 5-second Remotion intro video](public/media/agentic-team-playbook-intro.mp4)
 
@@ -15,6 +15,7 @@ The video is generated with Remotion from [`src/remotion/intro.tsx`](src/remotio
 ```bash
 npm run video:still
 npm run video:render
+npm run video:gif
 ```
 
 ## What This Provides

@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "video:still": "remotion still src/remotion/index.ts Intro public/media/agentic-team-playbook-intro.png --frame=75",
-    "video:render": "remotion render src/remotion/index.ts Intro public/media/agentic-team-playbook-intro.mp4 --codec=h264 --crf=28"
+    "video:render": "remotion render src/remotion/index.ts Intro public/media/agentic-team-playbook-intro.mp4 --codec=h264 --crf=28",
+    "video:gif": "ffmpeg -y -i public/media/agentic-team-playbook-intro.mp4 -vf \"fps=12,scale=640:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=96[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5\" public/media/agentic-team-playbook-intro.gif"
   },
   "dependencies": {
     "@astrojs/starlight": "0.38.4",
