@@ -3,9 +3,11 @@ title: Overview
 description: What this playbook is for and how to use it.
 ---
 
-AI agents are fast. Engineering systems are slow for a reason.
+AI coding agents are fast. Durable engineering systems are deliberate for a reason.
 
-This playbook helps teams get agent speed without losing reviewability, rollback, production safety, or maintainer trust.
+This playbook helps teams treat agentic programmers like durable workers: isolated by branch, checkpointed by atomic commit, verified before handoff, and stopped by risk gates before they can damage production trust.
+
+The aim is not to make agents busier. The aim is to make their work survive review, rollback, incident pressure, and maintainer scrutiny.
 
 ## What You Get
 
@@ -17,6 +19,17 @@ This playbook helps teams get agent speed without losing reviewability, rollback
 - risk escalation checklist
 - verification checklist
 - examples for common repo types
+
+## Durable Agent Concepts
+
+- branch = isolated execution context
+- atomic commit = checkpoint
+- review pack = execution log
+- verification = health check
+- rollback plan = recovery path
+- risk escalation = circuit breaker
+- dry-run and idempotency = safe retry semantics
+- pull request = human review boundary
 
 ## The Default Loop
 
@@ -36,4 +49,4 @@ This playbook helps teams get agent speed without losing reviewability, rollback
 
 The standard is not "agents make lots of commits."
 
-The standard is clean engineering throughput: small branches, reviewable commits, clear verification, explicit risk, and no production surprises.
+The standard is durable engineering throughput: small branches, reviewable checkpoints, clear verification, explicit risk, and no production surprises.

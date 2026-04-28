@@ -80,7 +80,7 @@ Install command: npm install
 For a public site, keep the headline concrete:
 
 ```text
-Run AI coding agents like an engineering team, not a slot machine.
+Make AI coding agents durable workers.
 ```
 
 For an internal company fork, make the first page operational:
