@@ -4,6 +4,12 @@ Reusable operating instructions, templates, and checklists for teams using AI co
 
 The goal is simple: move quickly while keeping work reviewable, reversible, verifiable, and safe.
 
+<video src="public/media/agentic-team-playbook-intro.mp4" poster="public/media/agentic-team-playbook-intro.png" controls width="100%">
+  Watch the Agentic Team Playbook intro video.
+</video>
+
+[Download the 5-second intro video](public/media/agentic-team-playbook-intro.mp4)
+
 ## What This Provides
 
 - A global agent operating policy
