@@ -13,6 +13,31 @@ Current type: community OSS.
 
 Work on a branch unless explicitly told otherwise. Use atomic commits, keep PRs reviewable, verify before completion, and return a review pack.
 
+## Hard Commit Gate
+
+Before creating any commit, inspect:
+
+```bash
+git diff --stat
+git status --short
+```
+
+If the staged or unstaged diff touches more than 8 files, stop and produce a commit split plan before committing.
+
+A single commit touching more than 8 files is only allowed when one of these is true:
+
+- initial repo scaffold
+- generated lockfile/vendor output required by one change
+- mechanical rename/move
+- formatting-only pass
+- explicitly approved by the human
+
+Otherwise, split the diff into multiple atomic commits.
+
+Do not finish a task with one large commit if the diff contains multiple reviewable intents.
+
+If a PR touches more than 8 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
+
 ## Repo Layout
 
 - `docs/` - operating policies and checklists
@@ -38,7 +63,11 @@ Smoke test: `git diff --check`
 
 Before editing, report objective, expected blast radius, files likely to change, commit plan, verification plan, and risk level.
 
+Before the final commit series, update the commit plan based on the actual diff.
+
 Use Conventional Commits. One commit equals one reviewable intent.
+
+Commit as you go. After each independently reviewable change unit, run the smallest relevant verification, stage only that unit, commit it, and continue.
 
 ## Stop Before Touching
 
