@@ -22,9 +22,9 @@ git diff --stat
 git status --short
 ```
 
-If the staged or unstaged diff touches more than 8 files, stop and produce a commit split plan before committing.
+If the staged or unstaged diff touches more than 3 files, stop and produce a commit split plan before committing.
 
-A single commit touching more than 8 files is only allowed when one of these is true:
+A single commit touching more than 3 files is only allowed when one of these is true:
 
 - initial repo scaffold
 - generated lockfile/vendor output required by one change
@@ -36,7 +36,7 @@ Otherwise, split the diff into multiple atomic commits.
 
 Do not finish a task with one large commit if the diff contains multiple reviewable intents.
 
-If a PR touches more than 8 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
+If a PR touches more than 3 files and has only one commit, assume the commit history is wrong and split it before returning the review pack.
 
 ## Repo Layout
 
