@@ -1,0 +1,47 @@
+---
+title: Agentic Team Playbook
+description: Run AI coding agents like an engineering team, not a slot machine.
+template: splash
+hero:
+  title: Agentic Team Playbook
+  tagline: A field manual for running AI coding agents like an engineering team, not a slot machine.
+  image:
+    file: ../../assets/mark.svg
+  actions:
+    - text: Start in 2 minutes
+      link: /quickstart/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/rogerchappel/agentic-team-playbook
+      icon: external
+---
+
+<div class="signal-grid">
+  <div class="signal-card">
+    <strong>Branch first.</strong>
+    <p>Agents work from fresh branches, not mystery local state.</p>
+  </div>
+  <div class="signal-card">
+    <strong>Atomic commits.</strong>
+    <p>One commit equals one reviewable intent.</p>
+  </div>
+  <div class="signal-card">
+    <strong>Risk gates.</strong>
+    <p>Production data, auth, billing, and secrets require human approval.</p>
+  </div>
+  <div class="signal-card">
+    <strong>Review packs.</strong>
+    <p>Every handoff says what changed, how it was verified, and what remains risky.</p>
+  </div>
+</div>
+
+<div class="copy-strip">
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/templates/AGENTS.md -o AGENTS.md
+mkdir -p .github
+curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/main/.github/pull_request_template.md -o .github/pull_request_template.md
+```
+
+</div>
