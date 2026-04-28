@@ -17,6 +17,7 @@ curl -fsSL https://raw.githubusercontent.com/rogerchappel/agentic-team-playbook/
 - log every run
 - validate before write
 - make writes idempotent
+- split broad diffs before committing
 - stop before production data, secrets, destructive commands, or scheduled jobs
 
 ## Source
