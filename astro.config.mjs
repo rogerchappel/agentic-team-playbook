@@ -12,6 +12,16 @@ export default defineConfig({
         src: './src/assets/mark.svg',
         alt: 'Agentic Team Playbook',
       },
+      head: [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/favicon.svg',
+            type: 'image/svg+xml',
+          },
+        },
+      ],
       customCss: ['./src/styles/custom.css'],
       social: [
         {
