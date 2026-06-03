@@ -20,5 +20,16 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.438"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogerchappel/agentic-team-playbook"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/agentic-team-playbook/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/agentic-team-playbook#readme",
+  "keywords": [
+    "agentic-team-playbook"
+  ]
 }
