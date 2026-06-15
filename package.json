@@ -35,5 +35,6 @@
   "homepage": "https://github.com/rogerchappel/agentic-team-playbook#readme",
   "keywords": [
     "agentic-team-playbook"
-  ]
+  ],
+  "description": "Playbooks and templates for coordinating agentic engineering teams."
 }
