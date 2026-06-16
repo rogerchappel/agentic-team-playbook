@@ -3,6 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "docs",
+    "examples",
+    "templates",
+    "public",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
