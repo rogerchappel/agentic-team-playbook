@@ -151,6 +151,16 @@ Then:
 - Agents should stop guessing when blocked.
 - Do not merge production or community work without human approval.
 
+## Safety And Limitations
+
+- The templates are operating guidance, not enforcement. Pair them with branch
+  protection, CI checks, and repository-specific review rules.
+- Generated review packs can contain file paths, command output, and local task
+  context. Review them before posting into public issues, chats, or PRs.
+- Keep the stop-before-touching list specific to each repository. Generic
+  defaults will miss production-only risks such as migrations, billing flows,
+  secrets, and customer data surfaces.
+
 ## Templates
 
 - [Global policy](docs/global-agent-operating-policy.md)
