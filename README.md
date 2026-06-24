@@ -176,6 +176,10 @@ Then:
 - [Atomic commits](docs/atomic-commits.md)
 - [Operating a high-throughput agentic team](docs/high-throughput-agentic-team.md)
 
+## Safety Boundaries
+
+The curl examples install templates from this repository at the current `main` branch. Review downloaded files before adopting them in production repos, pin a commit SHA when you need reproducible policy, and adapt the stop-before-touching and verification sections to each repository rather than treating the template as universal approval.
+
 ## License
 
 MIT
