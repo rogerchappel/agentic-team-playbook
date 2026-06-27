@@ -27,6 +27,7 @@
     "package:smoke": "npm run build && npm pack --dry-run",
     "release:check": "npm run build",
     "check": "npm run build",
+    "test": "node --test",
     "typecheck": "npx astro check 2>/dev/null || echo no-typecheck"
   },
   "dependencies": {
