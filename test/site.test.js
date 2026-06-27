@@ -16,6 +16,13 @@ describe('agentic-team-playbook site structure', () => {
       'astro.config.mjs should exist');
   });
 
+  it('ships a repo instruction template with review and verification guidance', () => {
+    const template = readFileSync('templates/AGENTS.md', 'utf8');
+    assert.match(template, /Verification/i);
+    assert.match(template, /Review Pack/i);
+    assert.match(template, /Stop Before Touching/i);
+  });
+
   it('package.json should build', () => {
     const out = execSync('npm run build', { encoding: 'utf8', timeout: 60000 });
     assert.ok(out.includes('Build') || out.includes('complete') || out.includes('✓'),
