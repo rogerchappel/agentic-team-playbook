@@ -183,3 +183,12 @@ The curl examples install templates from this repository at the current `main` b
 ## License
 
 MIT
+
+## Local Verification
+
+Run the committed test suite before publishing changes:
+
+```sh
+npm test
+```
+
