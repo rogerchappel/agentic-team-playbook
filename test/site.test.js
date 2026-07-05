@@ -2,6 +2,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { existsSync, readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import packageJson from '../package.json' with { type: 'json' };
 
 describe('agentic-team-playbook site structure', () => {
   it('should have required documentation files', () => {
@@ -21,6 +22,11 @@ describe('agentic-team-playbook site structure', () => {
     assert.match(template, /Verification/i);
     assert.match(template, /Review Pack/i);
     assert.match(template, /Stop Before Touching/i);
+  });
+
+  it('keeps the release check wired to package smoke verification', () => {
+    assert.match(packageJson.scripts['release:check'], /npm run package:smoke/);
+    assert.match(packageJson.scripts['package:smoke'], /npm pack --dry-run/);
   });
 
   it('package.json should build', () => {
