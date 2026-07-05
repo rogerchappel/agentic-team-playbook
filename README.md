@@ -192,3 +192,12 @@ Run the committed test suite before publishing changes:
 npm test
 ```
 
+For release-facing changes, run the full release gate:
+
+```sh
+npm run release:check
+```
+
+This runs the test suite, builds the Astro site, and performs `npm pack --dry-run`
+so the package allowlist stays aligned with the docs, templates, examples, and
+public media shipped by the repository.
