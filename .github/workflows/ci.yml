@@ -22,9 +22,5 @@ jobs:
           else
             npm install
           fi
-      - name: Run check
-        run: npm run check
-      - name: Run test
-        run: npm test
-      - name: Run build
-        run: npm run build
+      - name: Run release check
+        run: npm run release:check
