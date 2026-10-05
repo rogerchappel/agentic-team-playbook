@@ -1,0 +1,3 @@
+# Keep generated site output in the published archive even though Git ignores it.
+!dist/
+!dist/**
